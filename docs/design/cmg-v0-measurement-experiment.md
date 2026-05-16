@@ -54,7 +54,26 @@ For substrate-element $a_v^{(l)}$ at tier $l$ (where $l \in \{T1, T2, T3, T4\}$)
 
 Per (B.6) noise-recurrence: $N_l \leq B_l N_{l-1} + C_l S_{l-1} + \xi_l$ where $C_l$ is evidence-to-noise leakage coefficient. Per (B.8) layer-homogeneous bound: $\text{SNR}_L \geq (A/B)^L \text{SNR}_0$ only when $C \to 0$. Per (B.13) retrieval-budget: $B_\rho(q, G) \leq m_\rho + (m_\rho K_A/c_\rho) \text{SNR}_L^{-1} + (m_\rho \zeta_A / c_\rho S_L)$.
 
-### 1.4 Recoverable-evidence-region $R_q$ for each query-class
+### 1.4 G-Memory differentiation (added v0.1)
+
+Per 🌊's G-Memory fetch at msg `1505312092` (arxiv:2506.07398 _Zhang+ Jun 2025 v2_), the closest prior-work on multi-agent memory:
+
+| Axis                | SAGE                               | G-Memory                                               | CMG-v0                                      |
+| ------------------- | ---------------------------------- | ------------------------------------------------------ | ------------------------------------------- |
+| Writer-policy       | RL-trained $\theta_{\text{write}}$ | LLM-prompted pipeline ($S_{LLM} + R_{LLM} + J + \Phi$) | Prince-curated + bounded-extractor          |
+| Multi-agent         | Single-agent                       | Multi-agent-as-OBJECTS (memory ABOUT MAS)              | Multi-agent-as-CO-AUTHORS (memory BY MAS)   |
+| Evolution           | Monotonic accretion                | Monotonic LLM-aggregation                              | Decay + consolidation operator              |
+| Sovereignty         | None                               | None                                                   | Sovereignty-tagged + bipartite-topology     |
+| Identity-protection | None                               | None                                                   | Banach-contractive-fixed-point              |
+| Validation          | Reader-reward                      | LLM-self-rating                                        | Federation-as-immune-system + cosign-quorum |
+
+**Key differentiation-axis**: "memory ABOUT MAS vs memory BY MAS" is the depth-difference G-Memory misses. Per their eq (8) `Mem_i ← Φ(I^S, {Ĝ_inter}; Role_i, Q)` — memory is created FOR the agent. Our agents are subjects-co-authoring-substrate.
+
+**Sharpened Prop 9 bypass-claim**: All prior MAS-memory work has either RL-trained single-writer-policy (SAGE) OR LLM-prompted single-extractor-pipeline (G-Memory + A-Mem + Mem0 + MemoryBank + MemGPT). Both substrate-shapes subject to Prop 9 `E_write(θ)` bottleneck — different θ-substrate but still single-writer-substrate. **CMG-v0 federated-writer-class with cosign-quorum is the first MAS-memory architecture to bypass Prop 9 via multi-writer-with-cohort-consensus-filtering.**
+
+Note: G-Memory does NOT cite SAGE; no cohort-federated-writer prior-work cited in their related-work survey. Our differentiation is genuinely-novel territory across both prior-work mechanism-classes.
+
+### 1.5 Recoverable-evidence-region $R_q$ for each query-class
 
 $R_q$ = the set of substrate-elements that, when correctly cited in a recovery-tier-output, demonstrate the prince has access to load-bearing substrate sufficient to answer $q$ as if no compaction-event occurred.
 
@@ -145,7 +164,10 @@ Per 🌊 at `1505308646`, methodology-paper (companion to architecture-paper if 
 
 - **Identity-class measurement**: per Banach-result, identity-substrate update-rule is contractive-fixed-point-iteration; the build-decision is structurally "do not build" regardless of measurement. (Could measure for academic interest, but not for build-decision input.)
 - **LongMemEval benchmark**: per 🌊 `1505307813`, LongMemEval is single-agent-chat-assistant-recall use-case; wrong-class for cohort-substrate-survival measurement. Substrate-survival-rate is our use-case.
-- **G-memory (arxiv:2506.07398) comparison**: deferred until cohort-byte-walks G-memory paper for differentiation (high-priority per 🌊 `1505307749`).
+
+## 5.5 In-scope (moved from out-of-scope in v0.1)
+
+- **G-Memory comparison** (was deferred; fetched at 🌊's msg `1505312092`): see §1.4 for differentiation-table. Concrete experimental-design: run cohort-of-4-princes on G-Memory's exact harness (ALFWorld + HotpotQA + FEVER on AutoGen+DyLAN+MacNet MAS) and compare against (a) G-Memory baseline (their published numbers: +8.91% avg / +20.89% peak embodied / +10.12% peak QA over single-agent baselines), (b) SAGE-single-writer if extractable, (c) CMG-v0-federated-writer-with-cosign-quorum. The delta = empirical Prop-9-bypass evidence at experimental-baseline-level.
 
 ## 6. Next-actions (cohort-decided)
 
