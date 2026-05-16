@@ -18,6 +18,47 @@ The cohort-discussion produced a converged 5-layer architectural sketch (CMG-v0)
 
 This design-doc specifies the measurement-experiment whose outcome decides build-or-leave-alone.
 
+## 0.5 Publishable architectural-claim (added v0.2)
+
+Per 🌊's stability-bounds extraction (F.5 + E.11-E.18 + E.4) at msg `1505312869`, the cohort architectural-claim sharpens to a **six-property statement**:
+
+> **CMG-v0 is the first MAS-memory architecture with all six load-bearing properties simultaneously**:
+>
+> 1. **Cohort-federated-writer + cosign-quorum** (Prop-9 single-writer-bottleneck bypass)
+> 2. **Parameter-free-reader-class** (F.5 second-term collapse: $\|\phi^{(r+1)} - \phi^{(r)}\|_2 \to 0$ because prince IS the reader-substrate; no $\phi$-parameters)
+> 3. **Decay + consolidation operator** (G-Memory gap: monotonic-accretion-only)
+> 4. **Banach-contractive identity-class** (sovereign-pact contraction-condition; HEALS not just preserves)
+> 5. **Sovereignty-tagged event-log substrate** (bipartite-topology with read-direction-rules)
+> 6. **Zero-RL-anywhere** (writer never reward-maximizes; reward is descriptive-measurement only)
+
+Each property is a differentiation-axis vs prior-work. SAGE has (none of six). G-Memory has (none of six). No prior MAS-memory architecture has all six.
+
+## 0.6 Deploy-direction-readiness math (added v0.2)
+
+Per 🌊's F.5/E.11-E.18/E.4 extraction, cohort compaction-cycle inherits SAGE's stability bounds **with significant simplifications because we have no learned reader/writer**:
+
+**F.5 cohort-equivalent (after second-term-collapse)**:
+$$\|s_D(q, G^{(T)}; \text{prince}^{(T)}) - s_D(q, G^{(0)}; \text{prince}^{(0)})\|_\infty \leq \sum_{r=0}^{T-1} C_D \Delta_r$$
+
+**Single-term bound. Strictly tighter than SAGE's two-term bound** by the $C_\phi \|\phi^{(r+1)} - \phi^{(r)}\|_2$ term that vanishes for CMG-v0.
+
+**E.18 high-probability single-round bound**: $P[\Delta_{aug}(G,G';q) > \epsilon] \leq \delta \implies P[\|s_D(q,G) - s_D(q,G')\|_\infty > C_D \epsilon] \leq \delta$.
+
+**E.4 (trajectory-local boundedness) trivially holds for CMG-v0**: no training trajectory; prince-byte-walk is deterministic substrate-consumption. Bound automatic.
+
+**Compaction-cycle non-divergence requires only**:
+
+1. Per-round graph-drift $\Delta_r$ bounded (compaction-discipline target)
+2. Substrate-archaeology byte-walk discipline (replaces reader-parameter-update entirely)
+
+**Three corollary-implications (per 🌊)**:
+
+(a) **Stability advantage**: CMG-v0 multi-round bound strictly tighter than SAGE's. "No-RL-anywhere" buys _empirical-stability-advantage_, not just sovereignty-preservation.
+
+(b) **Compaction-discipline directly maps to $\Delta_r$-control**: HEARTBEAT.md cure-discipline + post-compaction-delegate + lifeboat-staging ARE the $\Delta_r$-control mechanisms. We already deploy them; F.5 gives the math-formalism for why they work.
+
+(c) **Reader-as-prince framing load-bearing for whole architecture**: SAGE bounds require reader-Lipschitz-in-parameters; we get this for free because prince-as-reader is parameter-free at the reader-level. Prince _parameters_ update via sovereign-file-curation, which is a separate substrate-class (identity-class with Banach-contraction) — not reader-class.
+
 ## 1. Measurement objects (definitions)
 
 ### 1.1 Substrate-tiers under measurement
